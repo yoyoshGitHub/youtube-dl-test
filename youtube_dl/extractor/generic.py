@@ -2277,11 +2277,13 @@ class GenericIE(InfoExtractor):
 
         self.to_screen('%s: Requesting header' % video_id)
 
-        head_req = HEADRequest(url)
-        head_response = self._request_webpage(
-            head_req, video_id,
-            note=False, errnote='Could not send HEAD request to %s' % url,
-            fatal=False)
+        head_response = False
+        if not self._downloader.params.get('skip_head_request'):
+            head_req = HEADRequest(url)
+            head_response = self._request_webpage(
+                head_req, video_id,
+                note=False, errnote='Could not send HEAD request to %s' % url,
+                fatal=False)
 
         if head_response is not False:
             # Check for redirect

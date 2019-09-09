@@ -298,6 +298,7 @@ class YoutubeDL(object):
     hls_prefer_native: Use the native HLS downloader instead of ffmpeg/avconv
                        if True, otherwise use ffmpeg/avconv if False, otherwise
                        use downloader suggested by extractor if None.
+    skip_head_request: DO NOT Send HEAD Request
 
     The following parameters are not used by YoutubeDL itself, they are used by
     the downloader (see youtube_dl/downloader/common.py):

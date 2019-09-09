@@ -226,6 +226,12 @@ def parseOpts(overrideArguments=None):
         action='store_const', const='::', dest='source_address',
         help='Make all connections via IPv6',
     )
+    network.add_option(
+        '--skip-head-request',
+        action='store_true', dest='skip_head_request',
+        default=False,
+        help='DO NOT Send HEAD Request',
+    )
 
     geo = optparse.OptionGroup(parser, 'Geo Restriction')
     geo.add_option(
